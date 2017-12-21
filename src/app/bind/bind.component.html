@@ -4,7 +4,7 @@
 <!--<button (click)="doOnClick($event)">点我</button>-->
 <!--<img [src]="imgUrl"><br>-->
 <!--<img src="{{imgUrl}}">-->
-<!--<input value="Tom" (input)="doOnInput($event)">-->
+<!--<input [value]="name" (input)="doOnInput($event)">-->
 <!--<button disabled>点我</button>-->
 <!--<table>-->
   <!--<tr>-->
@@ -14,4 +14,7 @@
 <!--<div class="a b" [class.c]="isBig">慕课网</div>-->
 <!--<div [ngClass]="divClass">慕课网</div>-->
 <!--<div [style.font-size.em]="isDev? 3 : 1">慕课网</div>-->
-<div [ngStyle]="divStyle">慕课网</div>
+<!--<div [ngStyle]="divStyle">慕课网</div>-->
+
+<input [(ngModel)]="name">
+{{name}}

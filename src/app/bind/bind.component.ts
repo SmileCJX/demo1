@@ -11,6 +11,8 @@ export class BindComponent implements OnInit {
 
   size : number = 2;
 
+  name : string;
+
   divClass : any  = {
     a : false,
     b : false,
@@ -27,11 +29,8 @@ export class BindComponent implements OnInit {
   }
 
   constructor() {
-    setTimeout(() => {
-      this.divStyle = {
-        color : 'yellow',
-        background : 'red'
-      }
+    setInterval(() => {
+      this.name = "Tom";
     },3000)
   }
 
@@ -44,9 +43,10 @@ export class BindComponent implements OnInit {
 
   doOnInput(event : any) {
     // 打出的属性是dom属性
-    console.log(event.target.value);
+    // console.log(event.target.value);
     //打出的属性是html属性，是不会变化的
-    console.log(event.target.getAttribute('value'));
+    // console.log(event.target.getAttribute('value'));
+    this.name = event.target.value;
   }
 
 }
