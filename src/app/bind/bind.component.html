@@ -18,4 +18,5 @@
 
 <!--<input [(ngModel)]="name">-->
 <!--{{name}}-->
-<input #myField (keyup)="onKey(myField.value)">
+<!--<input #myField (keyup)="onKey(myField.value)">-->
+<input [formControl]="searchInput">

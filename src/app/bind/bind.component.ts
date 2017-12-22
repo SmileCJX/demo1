@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observer, Observable} from "rxjs";
+import {FormControl} from "@angular/forms";
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-bind',
@@ -7,6 +9,8 @@ import {Observer, Observable} from "rxjs";
   styleUrls: ['./bind.component.css']
 })
 export class BindComponent implements OnInit {
+
+  searchInput : FormControl = new FormControl();
 
   imgUrl : string = 'http://via.placeholder.com/400x220';
 
@@ -33,15 +37,17 @@ export class BindComponent implements OnInit {
     // setInterval(() => {
     //   this.name = "Tom";
     // },3000)
-    Observable.from([1,2,3,4])
-      .filter(e => e % 2 == 0)
-      .map(e => e * e)
-      .subscribe(
-        e => console.log(e),
-        err => console.error(err),
-        () => console.log("结束啦")
-      )
-
+    // Observable.from([1,2,3,4])
+    //   .filter(e => e % 2 == 0)
+    //   .map(e => e * e)
+    //   .subscribe(
+    //     e => console.log(e),
+    //     err => console.error(err),
+    //     () => console.log("结束啦")
+    //   )
+    this.searchInput.valueChanges
+      .debounceTime(500)
+      .subscribe(stockCode => this.getStockCode(stockCode));
   }
 
   ngOnInit() {
@@ -59,7 +65,7 @@ export class BindComponent implements OnInit {
     this.name = event.target.value;
   }
 
-  onKey(value : string) {
+  getStockCode(value : string) {
     console.log(value);
   }
 
