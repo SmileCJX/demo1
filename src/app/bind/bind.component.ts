@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Observer, Observable} from "rxjs";
 
 @Component({
   selector: 'app-bind',
@@ -29,9 +30,18 @@ export class BindComponent implements OnInit {
   }
 
   constructor() {
-    setInterval(() => {
-      this.name = "Tom";
-    },3000)
+    // setInterval(() => {
+    //   this.name = "Tom";
+    // },3000)
+    Observable.from([1,2,3,4])
+      .filter(e => e % 2 == 0)
+      .map(e => e * e)
+      .subscribe(
+        e => console.log(e),
+        err => console.error(err),
+        () => console.log("结束啦")
+      )
+
   }
 
   ngOnInit() {
@@ -47,6 +57,10 @@ export class BindComponent implements OnInit {
     //打出的属性是html属性，是不会变化的
     // console.log(event.target.getAttribute('value'));
     this.name = event.target.value;
+  }
+
+  onKey(value : string) {
+    console.log(value);
   }
 
 }
