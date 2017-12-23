@@ -19,4 +19,7 @@
 <!--<input [(ngModel)]="name">-->
 <!--{{name}}-->
 <!--<input #myField (keyup)="onKey(myField.value)">-->
-<input [formControl]="searchInput">
+<!--<input [formControl]="searchInput">-->
+<p>我的生日是{{birthday | date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+<p>圆周率是{{pi | number : '2.1-4'}}</p>
+<p>试试我自己写的管道{{size | multiple : '2'}}</p>
